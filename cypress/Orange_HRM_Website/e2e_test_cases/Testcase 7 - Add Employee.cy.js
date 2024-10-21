@@ -70,7 +70,7 @@ it('Testcase 7_1 - Add Employer',() => {
 
 });
 
-it.only('Testcase 7_2 - Edit and Delete Employee',() => {
+it('Testcase 7_2 - Edit and Delete Employee',() => {
 
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     
