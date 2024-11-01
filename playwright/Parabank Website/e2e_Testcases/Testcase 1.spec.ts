@@ -12,10 +12,10 @@ test('Registration and Logout', async ({ page }) => {
     const h1 = await page.getByRole('heading', { name: 'Signing up is easy!' });
     await expect(h1).toBeVisible();
 
-    const charCode = Math.floor(Math.random() * 10) + 48;  // '0' is char code 48
-    const random_Digit = String.fromCharCode(charCode);
+    const random_Number = Math.floor(Math.random() * 101);  
+    const randomNumber_Str =  random_Number.toString();
     
-    await page.locator('input[id="customer.firstName"]').fill('Rima_'+ random_Digit); 
+    await page.locator('input[id="customer.firstName"]').fill('Rima_'+ randomNumber_Str); 
     
     await page.locator('input[id="customer.lastName"]').fill('Khan'); 
 
@@ -31,7 +31,7 @@ test('Registration and Logout', async ({ page }) => {
 
     await page.locator('input[id="customer.ssn"]').fill('0000'); 
 
-    await page.locator('input[id="customer.username"]').fill('Rima_'+ random_Digit); 
+    await page.locator('input[id="customer.username"]').fill('Rima_'+ randomNumber_Str); 
 
     await page.locator('input[id="customer.password"]').fill('Abcd1234@'); 
 
