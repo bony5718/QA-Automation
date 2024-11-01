@@ -7,7 +7,7 @@ test('Login', async ({ page }) => {
     // Expect a title "to contain" a substring.
     await expect(page).toHaveTitle(/ParaBank | Welcome | Online Banking/);
 
-    await page.locator('input[name="username"]').fill('Mina'); 
+    await page.locator('input[name="username"]').fill('Rima_2'); 
 
     await page.locator('input[name="password"]').fill('Abcd1234@'); 
 
@@ -18,40 +18,26 @@ test('Login', async ({ page }) => {
     if(url == 'https://parabank.parasoft.com/parabank/overview.htm')
     {
 
-        // await expect(page.getByRole('heading', { name: 'Error!' })).toBeVisible();
+        //await expect(page.getByRole('heading', { name: 'Error!' })).toBeVisible();
 
-        const object = page.locator('h1.title');
-        const text = await object.textContent();
+        await expect(page.getByRole('heading', { name: 'Accounts Overview' })).toBeVisible();
 
-        if(text == "Error!")
-        {
-            //logout
-            await expect(page.locator('h1.title')).toBeVisible();
-            await page.getByRole('link', { name: 'Log Out' }).click();
-            await expect (page.getByRole('heading', { name: 'Customer Login' })).toBeVisible();
-             
-        }
-
-        else
-        {
-        
-        //const h1 = await page.getByRole('heading', { name: 'Accounts Overview' });
-        await expect(page.locator('h1.title')).toBeVisible();
+        //const object = page.getByRole('heading', { name: 'Accounts Overview' })
+        //const text = await object.textContent();
         
          //Open New Account
          await page.getByRole('link', { name: 'Open New Account' }).click();
+         
          const openNewAccount_h1 = await page.getByRole('heading', { name: 'Open New Account' });
          await expect(openNewAccount_h1).toBeVisible();
  
          // Locate the dropdown by its selector
          const dropdown = await page.locator('select#type.input');
          await dropdown.selectOption('SAVINGS'); // Select an option by its value
-         
-         await expect(dropdown).toHaveValue('SAVINGS');
          await expect(dropdown).toHaveValue('1');
  
          const dropdown1 = await page.locator('select#fromAccountId.input');
-         await dropdown1.selectOption('index: 0');
+         await dropdown1.selectOption('43203');
     
          await page.getByRole('button', { name: 'Open New Account' }).click();
  
@@ -60,7 +46,7 @@ test('Login', async ({ page }) => {
          //logout
          await page.getByRole('link', { name: 'Log Out' }).click();
          await expect (page.getByRole('heading', { name: 'Customer Login' })).toBeVisible();
-        }
+        
     }
     
     else

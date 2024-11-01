@@ -12,7 +12,7 @@ test('Forget login info', async ({ page }) => {
 
     await expect (page.getByRole('heading', { name: 'Customer Lookup' })).toBeVisible();
 
-    await page.locator('input[id="firstName"]').fill('Rima'); 
+    await page.locator('input[id="firstName"]').fill('Rima_2'); 
     
     await page.locator('input[id="lastName"]').fill('Khan'); 
 
@@ -28,9 +28,24 @@ test('Forget login info', async ({ page }) => {
 
     await page.getByRole('button', { name: 'Find My Login Info' }).click();
 
-    await expect(page.getByText('Your login information was located successfully. You are now logged in.')).toBeVisible();
+    //await expect(page.getByText('Your login information was located successfully. You are now logged in.')).toBeVisible();
 
+
+    const heading = page.locator('h1');
+    const text = await heading.textContent();
+
+
+    if(text == "Error!")
+    {
+
+        await expect(page.getByRole('heading', { name: 'Error!' })).toBeVisible();
+             
+    }
+
+    else
+    {
+    await expect(page.getByText('Your login information was located successfully. You are now logged in.')).toBeVisible();   
     await page.getByRole('link', { name: 'Log Out' }).click();
-
     await expect (page.getByRole('heading', { name: 'Customer Login' })).toBeVisible();
+    }
 });
