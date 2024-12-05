@@ -1,0 +1,61 @@
+[
+    { 
+      "testName": "Testcase 1",
+      "username": "admin",
+      "password": "password123",
+      "navigation": "Web Application",
+       "columnName": "To Do",
+       "taskText": "Implement user authentication",
+       "tags": ["Feature", "High Priority"]
+    },
+
+    {
+        "testName": "Testcase 2",
+        "username": "admin",
+        "password": "password123",
+        "navigation": "Web Application",
+         "columnName": "To Do",
+         "taskText": "Fix navigation bug",
+         "tags": ["Bug"]
+    },
+
+    {
+        "testName": "Testcase 3",
+        "username": "admin",
+        "password": "password123",
+        "navigation": "Web Application",
+         "columnName": "In Progress",
+         "taskText": "Design system updates",
+         "tags": ["Design"]
+    },
+
+    {
+        "testName": "Testcase 4",
+        "username": "admin",
+        "password": "password123",
+        "navigation": "Mobile Application",
+         "columnName": "To Do",
+         "taskText": "Push notification system",
+         "tags": ["Feature"]
+    },
+
+    {
+        "testName": "Testcase 5",
+        "username": "admin",
+        "password": "password123",
+        "navigation": "Mobile Application",
+         "columnName": "In Progress",
+         "taskText": "Offline mode",
+         "tags": ["Feature", "High Priority"]
+    },
+    
+    {
+        "testName": "Testcase 6",
+        "username": "admin",
+        "password": "password123",
+        "navigation": "Mobile Application",
+         "columnName": "Done",
+         "taskText": "App icon design",
+         "tags": ["Design"]
+    } 
+]
